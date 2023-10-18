@@ -1,5 +1,5 @@
 version=4
 opts=\
 dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-fs-write-stream-atomic-$1.tar.gz/ \
- https://github.com/npm/fs-write-stream-atomic/tags .*/archive/v?([\d\.]+).tar.gz
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-fs-write-stream-atomic-$1/ \
+ https://github.com/npm/fs-write-stream-atomic/tags .*/archive/.*/v?([\d\.]+).tar.gz

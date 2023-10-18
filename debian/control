@@ -3,27 +3,28 @@ Section: javascript
 Priority: optional
 Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
 Uploaders: Pirate Praveen <praveen@debian.org>
-Build-Depends:
- debhelper (>= 11)
- , nodejs (>= 8.11~)
- , node-tap (>= 8) <!nocheck>
- , node-imurmurhash (>= 0.1.4) <!nocheck>
- , node-graceful-fs (>= 4.1.2) <!nocheck>
- , node-iferr (>= 0.1.5) <!nocheck>
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , node-graceful-fs <!nocheck>
+ , node-iferr <!nocheck>
+ , node-imurmurhash <!nocheck>
+ , node-readable-stream <!nocheck>
  , node-rimraf <!nocheck>
-Standards-Version: 4.2.1
-Homepage: https://github.com/npm/fs-write-stream-atomic
-Vcs-Git: https://salsa.debian.org/js-team/node-fs-write-stream-atomic.git
+ , node-tap <!nocheck>
+Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/js-team/node-fs-write-stream-atomic
+Vcs-Git: https://salsa.debian.org/js-team/node-fs-write-stream-atomic.git
+Homepage: https://github.com/npm/fs-write-stream-atomic
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
 
 Package: node-fs-write-stream-atomic
 Architecture: all
-Depends:
- ${misc:Depends}
- , nodejs (>= 4)
- , node-imurmurhash (>= 0.1.4)
- , node-graceful-fs (>= 4.1.2)
- , node-iferr (>= 0.1.5)
+Depends: ${misc:Depends}
+ , node-graceful-fs
+ , node-iferr
+ , node-imurmurhash
+ , node-readable-stream
 Description: Like fs.createWriteStream(...), but atomic
  Writes to a tmp file and does an atomic `fs.rename` to move it into place when
  it's done.
