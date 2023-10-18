@@ -1,5 +1,0 @@
-Tests: require
-Depends: node-fs-write-stream-atomic
-
-Test-Command: tap test
-Depends: @, node-tap, node-readable-stream, node-rimraf
